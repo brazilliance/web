@@ -34,4 +34,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Deploy files to Droplet
         run: |
-          rsync -avz --exclude '.git' --exclude '.github' --exclude 'README.md' --exclude 'LICENSE' --exclude '.gitignore' --exclude '.gitattributes' $GITHUB_WORKSPACE/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/html
+          rsync -avz --chown=www-data:www-data --exclude '.git' --exclude '.github' --exclude 'README.md' --exclude 'LICENSE' --exclude '.gitignore' --exclude '.gitattributes' $GITHUB_WORKSPACE/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/html
