@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
+# This Action will deploy the site to a DigitalOcean Droplet
 
-name: CI
+name: Deploy Site to DigitalOcean Droplet
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["main"]
   pull_request:
@@ -34,7 +32,6 @@ jobs:
           ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
       # Runs a set of commands using the runners shell
-      - name: Test SSH Connection
+      - name: Deploy files to Droplet
         run: |
-          ssh -vi ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "ls -al /var/www/html"
-          echo SSH connection successful
+          rsync -avz --exclude '.git' --exclude '.github' --exclude 'README.md' --exclude 'LICENSE' --exclude '.gitignore' --exclude '.gitattributes' $GITHUB_WORKSPACE/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/html
