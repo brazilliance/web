@@ -1,0 +1,22 @@
+name: brazilliance
+services:
+  web:
+    type: php:8.4
+    webroot: public
+    ssl: true
+proxy:
+  web:
+    - brazilliance.loc
+tooling:
+  composer:
+    service: web
+    description: Run Composer commands
+    cmd: composer
+  php:
+    service: web
+    description: Run PHP commands
+    cmd: php
+  caddy:
+    service: web
+    description: Run Caddy commands
+    cmd: caddy
