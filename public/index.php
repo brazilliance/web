@@ -39,7 +39,7 @@
 </head>
 
 <body class="h-screen w-full flex flex-col items-center justify-center bg-gray-100 bg-gradient-to-tr from-[#FFC53A] to-[#E06D06]">
-	<section class="min-w-2/12 h-[40%] bg-white rounded-lg border-2 border-[#321b5a] shadow-sm">
+	<section class="min-w-2/12 min-h-[40%] bg-white rounded-lg border-2 border-[#321b5a] shadow-sm">
 		<div class="h-[65%] p-8 bg-[#321b5a] text-white">
 			<h2 class="leading-none inter-tight-atomic">81</h2>
 			<h2 class="text-[12rem] leading-none -mt-2 -ml-2 poppins-extrabold text-[#FCFF99]">B</h2>
