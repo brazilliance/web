@@ -1,0 +1,12 @@
+:80 {
+    root * /app
+    php_fastcgi php:9000
+    file_server
+}
+
+:443 {
+    root * /app
+    php_fastcgi php:9000
+    file_server
+    tls self_signed
+}

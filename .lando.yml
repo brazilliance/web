@@ -4,6 +4,10 @@ services:
     type: php:8.4
     webroot: public
     ssl: true
+    build_as_root:
+      - apt-get update && apt-get install -y caddy
+    run:
+      - docker-php-entrypoint caddy run --config /app/Caddyfile
 proxy:
   web:
     - brazilliance.loc
